@@ -1,25 +1,33 @@
 import { Suspense, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Nav from "./components/Nav";
-import type { ITechnologies } from "./Types/Tecnologies";
 import Banner from "./components/Banner";
 import Technologies from "./components/Technologies/Technologies";
+import type { ITechnologies } from "./Types/Tecnologies";
 
 const technologiesFetch = async (): Promise<ITechnologies[]> => {
   const res = await fetch("/data.json");
-  const data = await res.json();
-  return data;
+
+  if (!res.ok) {
+    throw new Error("Failed to load technologies");
+  }
+
+  return res.json();
 };
 
 function App() {
-  const[technologiesPromise] = useState<Promise<ITechnologies[]>>(()=>technologiesFetch())
-
+  const [technologiesPromise] = useState(() => technologiesFetch());
 
   return (
     <>
-      <Suspense>
-        <Nav></Nav>
-        <Banner></Banner>
-        <Technologies technologiesPromise={technologiesPromise}></Technologies>
+      <ToastContainer position="top-right" autoClose={2500} />
+
+      <Suspense fallback={<p className="p-6">Loading technologies...</p>}>
+        <Nav />
+        <Banner />
+        <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
     </>
   );
