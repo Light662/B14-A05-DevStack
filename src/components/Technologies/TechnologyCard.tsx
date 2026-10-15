@@ -46,7 +46,7 @@ const TechnologyCard = ({ technology }: ITechnologyCardProps) => {
       {/* Action button */}
       <button
         type="button"
-        className="w-full rounded-md bg-slate-950 px-3 py-2 text-[10px] font-medium text-white transition-colors hover:bg-slate-800"
+        className="cursor-pointer w-full rounded-md bg-slate-950 px-3 py-2 text-[10px] font-medium text-white transition-colors hover:bg-slate-800"
       >
         Add to Stack
       </button>
