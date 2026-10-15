@@ -1,75 +1,90 @@
-# React + TypeScript + Vite
+# 🚀 Dev Stack Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Build Your Ideal Development Stack
 
-Currently, two official plugins are available:
+**Explore technologies. Compare tools. Build your stack.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Dev Stack Builder is a responsive web application that helps developers explore popular technologies and build a development stack for their next project. Each technology card shows useful details such as its category, difficulty level, rating, and badge. Add technologies to your stack, remove them individually, or clear your selection.
 
-## React Compiler
+🌐 **Live Demo:** https://b14-devstack-delta.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📂 **GitHub Repository:** https://github.com/Light662/B14-A05-DevStack
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Explore Technologies:** Browse technology cards with icons, descriptions, categories, difficulty levels, ratings, and badges.
+- **Build Your Stack:** Add technologies to your personal stack, remove individual items, or clear the entire stack. Duplicate selections are prevented.
+- **Responsive Interface:** Browse the technology collection alongside a stack sidebar, with a clean gradient theme and toast notifications for stack actions.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Technologies Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React** — Build reusable UI components.
+- **TypeScript** — Add type safety to the application.
+- **Tailwind CSS** — Create styling and responsive layouts.
+- **DaisyUI** — Use additional UI component styles.
+- **React Icons** — Display technology and social icons.
+- **React-Toastify** — Show notifications when stack items are added or removed.
+- **JSON** — Store the technology data.
+- **Vite** — Run the development server and build the project.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ⚙️ Installation and Setup
 
-```
+1. Clone the repository:
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone https://github.com/Light662/B14-A05-DevStack.git
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Open the project folder:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   ```bash
+   cd B14-A05-DevStack
+   ```
 
-```
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the local development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL shown in your terminal.
+
+## 🧠 React Questions and Answers
+
+### 1. What is JSX, and why is it used in React?
+
+JSX is a syntax that lets us write HTML-like markup inside JavaScript or TypeScript. It makes it easier to describe the UI that React should display.
+
+### 2. What is the difference between props and state?
+
+**Props** are data passed from a parent component to a child component. **State** is data managed by a component that can change over time. Updating state can cause React to render the UI again.
+
+### 3. What does the `useState` hook do, and where is it useful?
+
+`useState` lets a function component remember information and update it. In this project, state keeps track of the technologies selected for the stack, so the sidebar updates when items are added or removed.
+
+### 4. What does the `useEffect` hook do? How can it load data from a JSON file?
+
+`useEffect` runs side-effect code after a component renders. It can be used to fetch a JSON file when a component first appears. For example, an effect can call `fetch("/data.json")`, convert the response with `response.json()`, and save the result in state. A loading state can be shown until the data arrives.
+
+### 5. Why does React need a `key` when rendering a list with `map()`?
+
+A `key` gives each item a stable identity. React uses it to tell which items were added, removed, or changed. A unique value such as `technology.id` is usually a good key.
+
+### 6. What is conditional rendering in React?
+
+Conditional rendering means showing different UI depending on a condition. For example, the stack sidebar can show “Your stack is empty” when no technologies are selected, and show the selected technology list when there are items.
+
+### 7. How can data be passed from a parent component to a child component, and how can a child notify the parent?
+
+A parent passes data to a child through props. To let a child request a change, the parent can pass a callback function as a prop. The child calls that function, and the parent updates its state. This keeps the shared state in the parent while allowing child components to interact with it.
+
+## 👤 Author
+
+**Dev Stack Builder** — a development stack selection project.
